@@ -1,52 +1,10 @@
-# # Part 1 - without refactoring
-# class ArtistQuery
-#   attr_reader :relation
-
-#   def initialize(relation=Artist.all)
-#     @relation = relation.extending(Scopes)
-#   end
-
-#   def all
-#     self.relation
-#   end
-
-#   module Scopes
-#     def available
-#       where(available: true)
-#     end
-
-#     def by_genre(genre)
-#       where(genre: genre)
-#     end
-#   end
-# end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Part 2 - With refactoring
+# Part 3 - Without extending
 class ArtistQuery < BaseQuery
-  @model = Artist
+  def available
+    where(available: true)
+  end
 
-  module Scopes
-    def available
-      where(available: true)
-    end
-
-    def by_genre(genre)
-      where(genre: genre)
-    end
+  def by_genre(genre)
+    where(genre: genre)
   end
 end

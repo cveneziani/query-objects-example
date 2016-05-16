@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'ArtistQuery' do
-  subject(:query) { ArtistQuery.new(Artist.all) }
+describe 'ArtistQueryExtending' do
+  subject(:query) { ArtistQueryExtending.new.all }
 
   let(:awesome_label)   { Label.create!(name: "Awesome Records") }
   let(:flawless_label)  { Label.create!(name: "Flawless-R") }
@@ -51,7 +51,7 @@ describe 'ArtistQuery' do
     end
   end
 
-  describe '[chaining] with ActiveRecord conditions: available and sorted by name' do
+  describe '[chaining] with ActiveRecord conditions: available sorted by name' do
     let(:expected_artists) do
       [daft_punk, opeth]
     end
@@ -62,7 +62,7 @@ describe 'ArtistQuery' do
   end
 
   describe '[associations] available artists belonging to a given label' do
-    subject(:query) { ArtistQuery.new(awesome_label.artists) }
+    subject(:query) { ArtistQueryExtending.new(awesome_label.artists).all }
 
     let(:expected_artists) do
       [opeth]

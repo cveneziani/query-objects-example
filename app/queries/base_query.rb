@@ -1,27 +1,18 @@
-class BaseQuery
-  @model = nil
+class BaseQuery < SimpleDelegator
+  def self.method_added(method_name)
+    return if @redefining
+    @redefining = true
 
-  attr_reader :relation
+    alias_method :"_#{method_name}", method_name
+    define_method method_name do |*args, &block|
+      result = send(:"_#{method_name}", *args, &block)
+      if result.class == __getobj__.class
+        self.class.new result
+      else
+        result
+      end
+    end
 
-  def initialize(relation=nil)
-    relation  = self.class.model.all unless relation
-    @relation = relation.extending(self.class::Scopes)
-  end
-
-  def self.model
-    @model
-  end
-
-  def self.all(relation=nil)
-    query = new(relation)
-    query.relation
-  end
-
-  def all
-    self.relation
-  end
-
-  module Scopes
-    # any new scope should be implemented there.
+    @redefining = false
   end
 end
