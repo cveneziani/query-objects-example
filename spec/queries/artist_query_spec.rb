@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'ArtistQuery' do
-  subject(:query) { ArtistQuery.new(Artist.all) }
+  subject(:query) { ArtistQuery.relation }
 
   let(:awesome_label)   { Label.create!(name: "Awesome Records") }
   let(:flawless_label)  { Label.create!(name: "Flawless-R") }
@@ -62,7 +62,7 @@ describe 'ArtistQuery' do
   end
 
   describe '[associations] available artists belonging to a given label' do
-    subject(:query) { ArtistQuery.new(awesome_label.artists) }
+    subject(:query) { ArtistQuery.relation(awesome_label.artists) }
 
     let(:expected_artists) do
       [opeth]
