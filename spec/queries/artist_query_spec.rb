@@ -61,6 +61,16 @@ describe 'ArtistQuery' do
     end
   end
 
+  describe '[chaining] with ActiveRecord conditions in between: sorted by name and available' do
+    let(:expected_artists) do
+      [daft_punk, opeth]
+    end
+
+    it 'returns only available artists and sorted by name' do
+      expect(query.order(:name).available).to eq(expected_artists)
+    end
+  end
+
   describe '[associations] available artists belonging to a given label' do
     subject(:query) { ArtistQuery.relation(awesome_label.artists) }
 
