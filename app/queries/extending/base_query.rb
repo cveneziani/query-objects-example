@@ -4,22 +4,18 @@ module Extending
 
     attr_reader :relation
 
-    def initialize(relation=nil)
-      relation  = self.class.model.all unless relation
-      @relation = relation.extending(self.class::Scopes)
-    end
-
-    def self.all(relation=nil)
-      query = new(relation)
-      query.relation
+    def initialize(base_relation=nil)
+      base_relation = self.class.model.all unless base_relation
+      @relation     = base_relation.extending(self.class::Scopes)
     end
 
     def self.model
       @model
     end
 
-    def all
-      self.relation
+    def self.relation(base_relation=nil)
+      query = new(base_relation)
+      query.relation
     end
 
     module Scopes

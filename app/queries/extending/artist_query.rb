@@ -18,12 +18,9 @@ module Extending
   # class ArtistQuery
   #   attr_reader :relation
 
-  #   def initialize(relation=Artist.all)
-  #     @relation = relation.extending(Scopes)
-  #   end
-
-  #   def all
-  #     self.relation
+  #   def initialize(base_relation=nil)
+  #     base_relation = Artist.all unless base_relation
+  #     @relation     = base_relation.extending(Scopes)
   #   end
 
   #   module Scopes
