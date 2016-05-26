@@ -1,14 +1,15 @@
 # Query Objects - Example
 
-This is an example of a rails application that defines Query Objects.
+This is an example of a rails application that defines and uses Query Objects.
 
 ## Getting started
 
 Have a look at `app/queries/` folder.
 
-2 implementations are provided:
+3 implementations are provided:
 
 * Delegating to ActiveRecord::Relation (default one)
+* Delegating to ActiveRecord::Relation with chaining ActiveRecord conditions in between
 * Extending ActiveRecord::Relation
 
 ## Usage
@@ -60,9 +61,30 @@ ArtistQuery.relation(awesome_label.artists).available
 #     Based on the following association: `label` has many `artists`.
 ```
 
+## Chaining with ActiveRecord conditions in between
+
+By default, this feature is not provided.
+
+```ruby
+# PROVIDED
+ArtistQuery.relation.available.order(:name)
+
+# NOT PROVIDED
+ArtistQuery.relation.order(:name).available
+# =>  NoMethodError:
+#     undefined method `available' for #<Artist::ActiveRecord_Relation:0x000000033208b8>
+```
+
+To enable this feature - which isn't recommended - switch to the [second implementation](app/queries/chaining/base_query.rb).
+
+### Why isn't it recommended?
+
+The purpose of query objects is to extract scopes from models and to have relevant queries.
+Thus introducing ActiveRecord conditions between relevant queries is an anti-pattern. Try to avoid this behaviour.
+
 ## Tests
 
-There are tests for the 2 implementations. To run the tests:
+There are tests for the 3 implementations. To run the tests:
 
 ```
 $ rspec
@@ -70,7 +92,7 @@ $ rspec
 
 ## Benchmark
 
-A benchmark is provided between the 2 implementations: delegator and extend. Just run the following command:
+A benchmark is provided between 2 implementations: delegator (default one) and extend. Just run the following command:
 
 ```
 $ rake benchmark
