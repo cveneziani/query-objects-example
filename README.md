@@ -132,3 +132,7 @@ extend -- without model:     77497.9 i/s - 2.19x slower
 $ bundle install
 $ rake db:create db:migrate
 ```
+
+## Credits
+
+Thanks to [Bert Goethals](http://bertg.be/) for his help in optimizing the Query Objects.
