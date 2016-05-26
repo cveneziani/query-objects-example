@@ -1,5 +1,5 @@
-# Part 2 - With refactoring
 module Extending
+  # Part 2 - With refactoring
   class ArtistQuery < Extending::BaseQuery
     @model = Artist
 

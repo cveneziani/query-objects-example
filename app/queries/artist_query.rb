@@ -1,4 +1,3 @@
-# Part 3 - Without extending
 class ArtistQuery < BaseQuery
   def self.relation(base_relation=nil)
     super(base_relation, Artist)

@@ -6,33 +6,22 @@ class BaseQuery < SimpleDelegator
     new(base_relation)
   end
 
-  # Part 2 - With availability to chain with AR conditions in between
-  def method_missing(method_name, *args, &block)
-    result = super(method_name, *args, &block)
+  def self.method_added(method_name)
+    return if @redefining
+    @redefining = true
 
-    if result.class == __getobj__.class
-      self.class.new(result)
-    else
-      result
+    alias_method :"_#{method_name}", method_name
+
+    define_method method_name do |*args, &block|
+      result = send(:"_#{method_name}", *args, &block)
+
+      if result.class == __getobj__.class
+        self.class.new(result)
+      else
+        result
+      end
     end
+
+    @redefining = false
   end
-
-  # # Part 1 - Without availability to chain with AR conditions in between
-  # def self.method_added(method_name)
-  #   return if @redefining
-  #   @redefining = true
-
-  #   alias_method :"_#{method_name}", method_name
-  #   define_method method_name do |*args, &block|
-  #     result = send(:"_#{method_name}", *args, &block)
-
-  #     if result.class == __getobj__.class
-  #       self.class.new(result)
-  #     else
-  #       result
-  #     end
-  #   end
-
-  #   @redefining = false
-  # end
 end
