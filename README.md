@@ -136,3 +136,7 @@ $ rake db:create db:migrate
 ## Credits
 
 Thanks to [Bert Goethals](http://bertg.be/) for his help in optimizing the Query Objects.
+
+## License
+
+This project is released under the GPL License.
