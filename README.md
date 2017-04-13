@@ -123,14 +123,14 @@ extend -- without model:     77497.9 i/s - 2.19x slower
 
 ### Requirements
 
-* Ruby 2.3+
+* Ruby 2.4+
 * SQLite
 
 ### Installation
 
 ```
 $ bundle install
-$ rake db:create db:migrate
+$ rake db:create db:migrate db:seed
 ```
 
 ## Credits
