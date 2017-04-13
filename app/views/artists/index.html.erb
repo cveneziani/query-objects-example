@@ -1,0 +1,19 @@
+<div class="artists-container">
+  <% @artists.each do |artist| %>
+    <div class="artist">
+      <%= image_tag artist.picture_url, class: 'artist-picture' %>
+      <div class="artist-detais">
+        <h2><%= artist.name %></h2>
+        <ul>
+          <li><strong>Genre</strong> <%= artist.genre %></li>
+          <li><strong>Label</strong> <%= artist.label.name %></li>
+          <li><strong>Available</strong> <%= artist.available ? 'Yep' : 'Nope' %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="artist">
+    <!-- empty one -->
+  </div>
+</div>
