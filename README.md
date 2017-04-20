@@ -139,4 +139,4 @@ Thanks to [Bert Goethals](http://bertg.be/) for his help in optimizing the Query
 
 ## License
 
-This project is released under the GPL License.
+This project is released under the WTFPL License.
