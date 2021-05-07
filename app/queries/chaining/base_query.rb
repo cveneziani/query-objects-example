@@ -10,7 +10,7 @@ module Chaining
     def method_missing(method_name, *args, &block)
       result = super(method_name, *args, &block)
 
-      if result.class == __getobj__.class
+      if result.instance_of?(__getobj__.class)
         self.class.new(result)
       else
         result
