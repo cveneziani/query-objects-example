@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 # default
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.6.2'
+gem 'bootsnap'
 gem 'sqlite3'
 gem 'puma'
 
@@ -17,6 +18,7 @@ end
 
 group :development do
   gem 'benchmark-ips'
+  gem 'listen'
   gem 'web-console', '~> 2.0'
 end
 
