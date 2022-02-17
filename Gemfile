@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 # default
-gem 'rails', '5.2.6.2'
+gem 'rails', '6.0.4.6'
 gem 'bootsnap'
 gem 'sqlite3'
 gem 'puma'
 
 # assets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 
