@@ -11,12 +11,12 @@ puts 'Creating artists...'
 # Rock
 Artist.create!(
   name: 'Porcupine Tree', genre: 'Rock', label: roadrunner, available: false,
-  picture_url: 'https://upload.wikimedia.org/wikipedia/en/c/ce/Pt_deadwing.jpg'
+  picture_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.T-rm9YxujpebsABCloZgCQHaHa%26pid%3DApi&f=1'
 )
 # Metal
 Artist.create!(
   name: 'Opeth', genre: 'Metal', label: roadrunner, available: true,
-  picture_url: 'https://shop.napalmrecords.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/2/5/25528.jpg'
+  picture_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6G3Qb59qmRAcF8UTyQ4iEAHaHa%26pid%3DApi&f=1'
 )
 Artist.create!(
   name: 'Iron Maiden', genre: 'Metal',label: columbia, available: false,
