@@ -8,12 +8,10 @@ gem 'puma'
 
 # assets
 gem 'sass-rails', '~> 6.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'turbolinks'
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'byebug'
+  gem 'debug'
 end
 
 group :development do
