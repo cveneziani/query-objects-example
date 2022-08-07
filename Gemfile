@@ -18,7 +18,6 @@ end
 
 group :development do
   gem 'benchmark-ips'
-  gem 'listen'
   gem 'web-console', '~> 2.0'
 end
 
