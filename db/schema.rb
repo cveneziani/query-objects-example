@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_04_13_053040) do
-
+ActiveRecord::Schema[7.0].define(version: 2017_04_13_053040) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "genre"
     t.boolean "available", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "label_id"
     t.string "picture_url"
     t.index ["label_id"], name: "index_artists_on_label_id"
@@ -25,8 +24,8 @@ ActiveRecord::Schema.define(version: 2017_04_13_053040) do
 
   create_table "labels", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   add_foreign_key "artists", "labels"
