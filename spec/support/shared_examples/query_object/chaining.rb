@@ -23,7 +23,7 @@ RSpec.shared_examples 'query object - not chaining with AR contidions in between
     end
 
     it 'returns only available artists and sorted by name' do
-      expect { query.order(:name).available }.to raise_error(NoMethodError, /undefined method `available' for #<Artist::ActiveRecord_Relation/)
+      expect { query.order(:name).available }.to raise_error(NoMethodError, /undefined method `available' for #<ActiveRecord::Relation \[#<Artist/)
     end
   end
 end
