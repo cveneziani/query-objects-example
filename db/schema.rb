@@ -29,4 +29,5 @@ ActiveRecord::Schema.define(version: 2017_04_13_053040) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "artists", "labels"
 end
