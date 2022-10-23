@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # default
-gem 'rails', '7.0.3.1'
+gem 'rails', '7.0.4'
 gem 'bootsnap'
 gem 'sqlite3'
 gem 'puma'
